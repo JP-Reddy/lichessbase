@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  gid: MyString
+  winner: MyString
+  white_rating: 1
+  black_rating: 1
+
+two:
+  gid: MyString
+  winner: MyString
+  white_rating: 1
+  black_rating: 1

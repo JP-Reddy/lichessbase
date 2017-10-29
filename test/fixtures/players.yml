@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pname: MyString
+  country: MyString
+  BRating: 1
+  SRating: 1
+
+two:
+  pname: MyString
+  country: MyString
+  BRating: 1
+  SRating: 1
