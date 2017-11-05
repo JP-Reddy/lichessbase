@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024220735) do
+ActiveRecord::Schema.define(version: 20171103075723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "annotations", force: :cascade do |t|
+    t.text "annotation"
+    t.integer "likes"
+    t.integer "rating"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "game_id"
+  end
 
   create_table "games", force: :cascade do |t|
     t.string "gid"
@@ -44,6 +54,32 @@ ActiveRecord::Schema.define(version: 20171024220735) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pname"], name: "index_players_on_pname", unique: true
+  end
+
+  create_table "tournament_games", force: :cascade do |t|
+    t.string "tid"
+    t.integer "tournament_id"
+    t.integer "game_id"
+    t.string "gid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "tournaments", force: :cascade do |t|
+    t.string "tid"
+    t.string "name"
+    t.integer "avg_rating"
+    t.datetime "start"
+    t.datetime "end"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "gametype_id"
+    t.integer "first_id"
+    t.integer "first_score"
+    t.integer "second_id"
+    t.integer "second_score"
+    t.integer "third_id"
+    t.integer "third_score"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,6 @@
+<%= simple_form_for([@game,@game.annotations.build]) do |f|%>
+	<%= f.input :rating %>
+	<%= f.input :annotation %>
+	<%= f.input :likes %>
+	<%= f.button :submit %>
+<% end %>

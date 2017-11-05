@@ -1,9 +1,21 @@
 <h3><%= @game.white.pname%> "vs" <%=@game.black.pname %>
-
+</h3>
 <%url="https://lichess.org/embed/#{@game.gid}?theme=auto&bg=auto" %>
 <div><iframe width=600 height=397 frameborder=0
 src=<%=url%>
 ></iframe>
 </div>
-
+<p>Winner: 
+<% wid=@game.winner_id %>
+<% if !wid==0 %>
+	<%= Player.find(wid).pname %>
+<%else %>
+	It's a draw
+<%end%>
+</p>
 <div> Annotations </div> 
+<div>
+<%= render @game.annotations %>
+<%= render :partial => "annotations/form",:locals => {:annotation => Annotation.new} %>
+<td><%= link_to 'Edit', edit_game_annotation_path(@game), remote: true %></td>
+</div>

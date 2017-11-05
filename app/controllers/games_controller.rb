@@ -16,6 +16,9 @@ class GamesController < ApplicationController
 
 
 	def edit
+		respond_to do |format|
+		  format.js {render layout: false} # Add this line to you respond_to block
+		end
 	end
 	def update
 	end
