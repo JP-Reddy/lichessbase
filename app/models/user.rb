@@ -2,6 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   has_many :annotations
+  has_many :favoritegames
   belongs_to :player
   # after_create :create_or_find_player
   attr_accessor :login

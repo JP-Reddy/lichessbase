@@ -1,0 +1,35 @@
+<% if !flash[:notice].blank? %>
+   <div class = "alert alert-info">
+      <%= flash[:notice] %>
+   </div>
+<% end %>
+
+<br />
+
+<%= link_to "Add your personal games", new_favoritegame_path, class: "btn btn-primary" %>
+<br />
+<br />
+
+<table class = "table table-bordered table-striped">
+   <thead>.
+      <tr>
+         <th>Download your games</th>
+         <th>Delete game</th>
+         <th> </th>
+      </tr>
+   </thead>
+   
+   <tbody>
+   	<% if !@fav_games.nil?%>
+      <% @fav_games.each do |fav_game| %>
+         
+         <tr>
+           <td><%= link_to File.basename(fav_game.pgn.path), fav_game.pgn_url %></td>
+            <td><%= button_to "Delete",  fav_game, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete the game" %></td>
+         </tr>
+         
+      <% end %>
+     <%end %>
+   </tbody>
+   
+</table>

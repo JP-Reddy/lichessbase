@@ -35,6 +35,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem "omniauth-google-oauth2"
 gem 'httparty'
+gem 'carrierwave'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
