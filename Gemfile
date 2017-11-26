@@ -36,9 +36,14 @@ gem 'devise'
 gem "omniauth-google-oauth2"
 gem 'httparty'
 gem 'carrierwave'
+gem 'bourbon'                                                                                                  
+gem 'neat'                                                                                                     
+gem 'bitters'                                                                                                  
+gem 'refills'
+gem 'rails-erd',  group: :development
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'hirb'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

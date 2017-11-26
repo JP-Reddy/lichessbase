@@ -1,0 +1,23 @@
+<div class="container_jp">
+	<h3><%= @tour.name %> </h3>
+<div class="row-fluid">
+   <div class="col-xs-6" style="width: 400px;">
+	<ul class="list-group">
+		<% @tour.tournament_games[0..19].each do |tgame| %>
+	  <li class="list-group-item d-flex justify-content-between align-items-center text-center">
+	  <%= link_to "#{tgame.game.white.pname} vs #{tgame.game.black.pname}",game_path(tgame.game_id)%></li>
+	  	<%end%>
+	</ul>
+</div>
+   <div class="col-xs-6" style="width: 400px;">
+	<ul class="list-group">
+		<% @tour.tournament_games[20..39].each do |tgame| %>
+	  <li class="list-group-item d-flex justify-content-between align-items-center text-center">
+	  <%= link_to "#{tgame.game.white.pname} vs #{tgame.game.black.pname}",game_path(tgame.game_id)%></li>
+	  	<%end%>
+	</ul>
+</div>
+
+</div>
+</div>
+

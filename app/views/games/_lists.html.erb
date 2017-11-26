@@ -1,0 +1,46 @@
+        <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    
+                    <div class="caption">
+                        <h3>Blitz</h3>
+                            <% games=Game.where("gametype_id= #{Gametype.find_by(name: 'Blitz').id}").order("created_at DESC") %>
+                            <% if !games.nil? %>
+                                <% games[0..4].each do |game| %>
+                                    <li class="list-group-item"><%=link_to "#{game.white.pname} vs #{game.black.pname}",game_path(game)%></li>
+                                <%end%>
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Bullet</h3>
+                            <% games=Game.where("gametype_id= #{Gametype.find_by(name: 'Bullet').id}").order("created_at DESC") %>
+                            <% if !games.nil? %>
+                                <% games[0..4].each do |game| %>
+                                    <li class="list-group-item"><%=link_to "#{game.white.pname} vs #{game.black.pname}",game_path(game)%></li>
+                                <%end%>
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6 hero-feature">
+                <div class="thumbnail">
+                    <div class="caption">
+                        <h3>Classical</h3>
+                            <% games=Game.where("gametype_id= #{Gametype.find_by(name: 'Classical').id}").order("created_at DESC") %>
+                            <% if !games.nil? %>
+                                <% puts games.length %>
+                                <% games[0..4].each do |game| %>
+                                    <li class="list-group-item"><%=link_to "#{game.white.pname} vs #{game.black.pname}",game_path(game)%></li>
+                                <%end%>
+                            <% end %>
+                        </p>
+                    </div>
+                </div>
+            </div>

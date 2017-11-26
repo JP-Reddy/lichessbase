@@ -26,8 +26,8 @@ y.each { |pgn|
 		winner=nil
 	end
 	gt=pgn['Event']
-	if gt.include?("Classical")
-		gt_id=Gametype.find_by(name: "Classical").id
+	if gt.include?("Bullet")
+		gt_id=Gametype.find_by(name: "Bullet").id
 		wr=pgn['WhiteElo']
 		br=pgn['BlackElo']
 

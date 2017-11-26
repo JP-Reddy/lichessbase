@@ -1,0 +1,31 @@
+
+<div class="container_jp" >
+
+	<div class="row-fluid">
+	   <div class="col-xs-6" style="width: 500px;">
+	<h1><b>Best Classical players right now</b></h1>
+		<% @cplayers[0..9].each do |player| %>
+			<ul class="list-group">
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			  	<b><%= link_to player.pname, player_path(player.id) %></b>
+			    <span class="badge badge-primary badge-pill"><%= player.SRating %></span>
+			  </li>
+			</ul>
+		<% end %>
+		</div>
+	</div>
+
+	<div class="row-fluid">
+	   <div class="col-xs-6" style="width: 500px;">
+	<h1><b>Best Blitz and Bullet players right now</b></h1>
+		<% @bplayers[0..9].each do |player| %>
+			<ul class="list-group">
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			  	<b><%= link_to player.pname, player_path(player.id) %></b>
+			    <span class="badge badge-primary badge-pill"><%= player.BRating %></span>
+			  </li>
+			</ul>
+		<% end %>
+		</div>
+	</div>
+</div>

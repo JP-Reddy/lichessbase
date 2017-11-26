@@ -28,6 +28,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
           # last_id=Player.last.id
           resource.player_id=player.id      
           resource.save
+          redirect_to root_path
+        else
+          
+          redirect_to new_user_registration_path ,notice: "Enter lichess user name"
         end
       else
         set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"

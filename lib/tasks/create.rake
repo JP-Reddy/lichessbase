@@ -10,7 +10,7 @@ namespace :create do
   end
 
   desc "Create gametpyes"
-  task gametpyes: :environment do 
+  task gametypes: :environment do 
   	Gametype.create(name: "Blitz")
   	Gametype.create(name: "Bullet")
   	Gametype.create(name: "Classical")

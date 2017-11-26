@@ -1,13 +1,34 @@
-<h3><%= @game.white.pname%> "vs" <%=@game.black.pname %>
-</h3>
+<head>
+<style>
+.row{
+  margin-top: 30px;
+  margin-bottom: 30px
+}
+</style>
+</head>
 <%url="https://lichess.org/embed/#{@game.gid}?theme=auto&bg=auto" %>
-<div><iframe width=600 height=397 frameborder=0
-src=<%=url%>
-></iframe>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>
+		<%= @game.white.pname%> vs <%=@game.black.pname %>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+    	<iframe width=600 height=397 frameborder=0
+    	src=<%=url%>
+    	></iframe>
+    </div>
+<!--     <div class="col-sm-4">
+        Game Stats
+    </div> -->
+  </div>
 </div>
 <p>Winner: 
 <% wid=@game.winner_id %>
-<% if !wid==0 %>
+<% if !(wid==0) %>
 	<%= Player.find(wid).pname %>
 <%else %>
 	It's a draw
@@ -15,7 +36,14 @@ src=<%=url%>
 </p>
 <div> Annotations </div> 
 <div>
-<%= render @game.annotations %>
-<%= render :partial => "annotations/form",:locals => {:annotation => Annotation.new} %>
-<td><%= link_to 'Edit', edit_game_annotation_path(@game), remote: true %></td>
+<%  @game.annotations.each do |annot| %>
+  <b><%= annot.annotation %></b><br>
+  <%end %>
+
+<%= link_to "New Annotation", new_game_annotation_path(game_id: @game.id),id: "new_annotation", remote: true %>||<%=link_to "Cancel", game_path(@game.id),id: "cancel_annotation" , remote: true%>
+<div id= "annotation">
+  
+</div>
+<!-- <%= render :partial => "annotations/form",:locals => {:annotation => Annotation.new} %> -->
+
 </div>

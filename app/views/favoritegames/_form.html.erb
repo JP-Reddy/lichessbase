@@ -1,1 +1,7 @@
-<
+<div class = "well">
+   <%= simple_form_for [current_user,current_user.favoritegames.build], html: { multipart: true } do |f| %>
+      <%= f.label "Upload a PGN file" %>
+      <%= f.file_field :pgn %>
+      <%= f.submit "Save", class: "btn btn-primary" %>
+   <% end %>
+</div>

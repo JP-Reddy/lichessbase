@@ -1,6 +1,8 @@
-<%= simple_form_for([@game,@annotation]) do |f|%>
+<div class="container" style="width: 500px>"
+<%= simple_form_for([@game,@annotation], remote: true) do |f|%>
 	<%= f.input :rating %>
 	<%= f.input :annotation %>
 	<%= f.input :likes %>
 	<%= f.button :submit %>
 <%end%>	
+</div>

@@ -10,12 +10,4 @@
    </div>
 <% end %>
 
-<div class = "well">
-   <%= form_for @fav_game, html: { multipart: true } do |f| %>
-      <%= f.label "Game id" %>
-      <%= f.text_field :gid %>
-      <%= f.label "Upload a PGN file" %>
-      <%= f.file_field :pgn %>
-      <%= f.submit "Save", class: "btn btn-primary" %>
-   <% end %>
-</div>
+<%= render 'form' %>

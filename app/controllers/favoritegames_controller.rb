@@ -1,5 +1,4 @@
 class FavoritegamesController < ApplicationController
-
   before_action :authenticate_user!, only: [:edit,:new,:update,:destroy,:create]
   before_action :find_fav_game, only: [:update,:destroy,:show,:edit]
   def index
@@ -7,7 +6,7 @@ class FavoritegamesController < ApplicationController
   end
 
   def new
-    @fav_game=Favoritegame.new
+    @fav_game=current_user.favoritegames.build
   end
 
   def create
@@ -15,9 +14,13 @@ class FavoritegamesController < ApplicationController
     if find.nil?
       @fav_game=Favoritegame.new(fav_game_params)
       # @fav_game.game_id=find.id
+      @gid=File.basename(@fav_game.pgn.path).split('.')[3]
+      game_id=Game.find_by(gid: @gid).id
+      puts game_id
+      @fav_game.game_id=game_id
       @fav_game.user_id=current_user.id
       if @fav_game.save
-         redirect_to favoritegames_path, notice: "Your game has been uploaded."
+         redirect_to user_favoritegames_path, notice: "Your game has been uploaded."
       else
          render "new"
       end
@@ -45,16 +48,12 @@ class FavoritegamesController < ApplicationController
   private 
 
   def fav_game_params
-    params.require(:favoritegame).permit(:gid,:pgn)
+    params.require(:favoritegame).permit(:pgn)
   end
 
   def find_fav_game
     @fav_game=Favoritegame.find(params[:id])
   end
 
-  # def verify_user
-  #   if current_user.id==@fav_game.user_id
 
-  #   end
-  # end
 end

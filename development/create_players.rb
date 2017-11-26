@@ -7,7 +7,7 @@ Dir.glob('./development/PGNs/*.pgn') do |file|
 	 y<<JSON.parse(x)
 end
 puts y.length
-sleep(10)
+# sleep(10)
 names=[]
 
 y.each { |game|
@@ -19,7 +19,7 @@ y.each { |game|
 	end
 }
 puts names.length
-sleep(10)
+# sleep(10)
 
 player=[]
 names.each { |x|
