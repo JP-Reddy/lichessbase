@@ -1,0 +1,12 @@
+<div> Annotations </div> 
+<div>
+<%  @game.annotations.each do |annot| %>
+  <b><%= annot.annotation %></b><br>
+  <%end %>
+
+<%= link_to "New Annotation", new_game_annotation_path(game_id: @game.id),id: "new_annotation", remote: true %>||<%=link_to "Cancel", game_path(@game.id),id: "cancel_annotation" , remote: true%>
+<div id= "annotation">
+  
+</div>
+
+</div>

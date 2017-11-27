@@ -30,17 +30,19 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'simple_form'
-gem 'bootstrap-sass'
+# gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'devise'
 gem "omniauth-google-oauth2"
 gem 'httparty'
 gem 'carrierwave'
-gem 'bourbon'                                                                                                  
-gem 'neat'                                                                                                     
-gem 'bitters'                                                                                                  
-gem 'refills'
-gem 'rails-erd',  group: :development
+
+# gem 'rails-erd',  group: :development
+gem 'less-rails'
+gem 'therubyracer'
+gem 'jekyll'
+gem 'font-awesome-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'hirb'

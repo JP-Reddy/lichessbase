@@ -1,2 +1,69 @@
-<h1>Players#show</h1>
-<p>Find me in app/views/players/show.html.erb</p>
+<h1>
+	<% if @player.SRating >= 2500 %>
+	GM 
+	<% elsif @player.SRating >=2400 %>
+	IM 
+	<% elsif @player.SRating >=2200 %>
+	FM 
+	<%else %>
+	<% end %> 
+		 
+	<b><%= @player.pname %></b>
+</h1>
+
+<div class="container_jp"> 
+<h3>
+	<b><%= @player.pname %> Ratings</b>
+
+</h3>
+<h4>
+	Classical: <%= @player.SRating %>
+	</br>
+	Rapid Rating: <%= @player.BRating %>
+</h4>
+<p>
+
+	</p>
+</div>
+<% puts @cgames.length %>
+<% puts @bgames.length %>
+<% puts @bugames.length %>
+
+<div class="container_jp">
+	<% if @cgames.present? %>
+		<h3>Classical Games </h3>
+		<div class="row-fluid">
+		   <div class="col-xs-6" style="width: 400px;">
+			<ul class="list-group">
+				<% @cgames.each do |game| %>
+			  <li class="list-group-item d-flex justify-content-between align-items-center text-center">
+			  <%= link_to "#{game.white.pname} vs #{game.black.pname}",game_path(game.id)%></li>
+			  	<%end%>
+			</ul>
+		</div>
+	<% end %>
+	<% if @bgames.present? %>
+		<h3>Blitz Games </h3>
+		<div class="row-fluid">
+		   <div class="col-xs-6" style="width: 400px;">
+			<ul class="list-group">
+				<% @bgames.each do |game| %>
+			  <li class="list-group-item d-flex justify-content-between align-items-center text-center">
+			  <%= link_to "#{game.white.pname} vs #{game.black.pname}",game_path(game.id)%></li>
+			  	<%end%>
+			</ul>
+		</div>
+	<% end %>
+	<% if @bugames.present? %>
+		<h3><b>Bullet Games </b></h3>
+		<div class="row-fluid">
+		   <div class="col-xs-6" style="width: 400px;">
+			<ul class="list-group">
+				<% @bugames.each do |game| %>
+			  <li class="list-group-item d-flex justify-content-between align-items-center text-center">
+			  <%= link_to "#{game.white.pname} vs #{game.black.pname}",game_path(game.id)%></li>
+			  	<%end%>
+			</ul>
+		</div>
+	<% end %>
+</div>

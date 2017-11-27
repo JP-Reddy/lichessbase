@@ -4,6 +4,22 @@
   margin-top: 30px;
   margin-bottom: 30px
 }
+
+.btn-dark {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+button, select {
+    text-transform: none;
+}
+
+a {
+    color: #1565c0;
+    text-decoration-skip: ink;
+    /* transition: color 150ms ease; */
+}
 </style>
 </head>
 <%url="https://lichess.org/embed/#{@game.gid}?theme=auto&bg=auto" %>
@@ -26,6 +42,8 @@
     </div> -->
   </div>
 </div>
+  <a class="btn btn-dark" href="https://lichess.org/game/export/<%= @game.gid %>.pgn">Download PGN</a>
+  <button type="button" class="btn btn-outline-dark">Download PGN</button>
 <p>Winner: 
 <% wid=@game.winner_id %>
 <% if !(wid==0) %>
@@ -34,16 +52,5 @@
 	It's a draw
 <%end%>
 </p>
-<div> Annotations </div> 
-<div>
-<%  @game.annotations.each do |annot| %>
-  <b><%= annot.annotation %></b><br>
-  <%end %>
-
-<%= link_to "New Annotation", new_game_annotation_path(game_id: @game.id),id: "new_annotation", remote: true %>||<%=link_to "Cancel", game_path(@game.id),id: "cancel_annotation" , remote: true%>
-<div id= "annotation">
-  
-</div>
+<%= render :partial => "annotations" %>
 <!-- <%= render :partial => "annotations/form",:locals => {:annotation => Annotation.new} %> -->
-
-</div>
