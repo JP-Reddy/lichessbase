@@ -1,56 +1,164 @@
 <head>
-<style>
-.row{
-  margin-top: 30px;
-  margin-bottom: 30px
-}
+  <%= csrf_meta_tags %>
+  <style>
+  .container_player{ width:100%; }
+  .align-left{ float: left;width:60%; }
+  .align-right{float: right;width:40%}
 
-.btn-dark {
-    color: #fff;
-    background-color: #343a40;
-    border-color: #343a40;
-}
-
-button, select {
-    text-transform: none;
-}
-
-a {
-    color: #1565c0;
-    text-decoration-skip: ink;
-    /* transition: color 150ms ease; */
-}
 </style>
 </head>
-<%url="https://lichess.org/embed/#{@game.gid}?theme=auto&bg=auto" %>
+<!-- Page Content -->
 <div class="container">
+
   <div class="row">
-    <div class="col-md-12">
-      <h1>
-		<%= @game.white.pname%> vs <%=@game.black.pname %>
-      </h1>
+
+    <!-- Post Content Column -->
+    <div class="col-lg-8">
+
+      <!-- Title -->
+      <h1 class="mt-4"><%= @game.white.pname%> vs <%=@game.black.pname %></h1>
+
+      <!-- Author -->
+      <p class="lead">
+        <%= @game.gametype.name %>
+      </p>
+
+      <hr>
+
+      <!-- Date/Time -->
+      <p></p>
+
+      <hr>
+      <%url="https://lichess.org/embed/#{@game.gid}?theme=auto&bg=auto" %>
+
+      <!-- Preview Image -->
+      <iframe width=728 height=400 frameborder=0
+      src=<%=url%>
+      ></iframe>
+
+      <!-- Comments Form -->
+      <div class="card my-4">
+        <h5 class="card-header">New Annotation:</h5>
+        <div class="card-body">
+<!--           <form>
+            <div class="form-group">
+              <textarea class="form-control" rows="3"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form> -->
+          <%= render :partial => "annotations/form",:locals => {:annotation => Annotation.new} %>
+        </div>
+      </div>
+
+      <!-- Single Comment -->
+<!--       <div class="media mb-4">
+        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+        <div class="media-body">
+          <h5 class="mt-0">Commenter Name</h5>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+        </div>
+      </div> -->
+
+      <!-- Comment with nested comments -->
+<!--       <div class="media mb-4">
+        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+        <div class="media-body">
+          <h5 class="mt-0">Commenter Name</h5>
+          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+
+          <div class="media mt-4">
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <div class="media-body">
+              <h5 class="mt-0">Commenter Name</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </div>
+
+          <div class="media mt-4">
+            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+            <div class="media-body">
+              <h5 class="mt-0">Commenter Name</h5>
+              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
+            </div>
+          </div>
+
+        </div>
+      </div> -->
+
     </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-4">
-    	<iframe width=600 height=397 frameborder=0
-    	src=<%=url%>
-    	></iframe>
+
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
+
+      <!-- Search Widget -->
+      <div class="card my-4">
+        <h5 class="card-header">Download this game</h5>
+        <div class="card-body">
+           <a class="btn btn-outline-dark" href="https://lichess.org/game/export/<%= @game.gid %>.pgn">Download PGN</a>
+        </div>
+      </div>
+
+      <!-- Categories Widget -->
+
+      <!-- Side Widget -->
+      <div class="card my-4">
+        <h5 class="card-header"><%= @game.white.pname %> Stats</h5>
+        <div class="card-body">
+            <div class="container_player">
+            <div class="align-left">
+              <b>Classical Rating: </b> 
+            </div>
+            <div class="align-right">
+              <%= @game.white.SRating %>
+            </div>
+          </div>
+            <div class="container_player">
+            <div class="align-left">
+              <b>Rapid Rating: </b> 
+            </div>
+            <div class="align-right">
+              <%= @game.white.BRating %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card my-4">
+        <h5 class="card-header"><%= @game.black.pname %> Stats</h5>
+        <div class="card-body">
+            <div class="container_player">
+            <div class="align-left">
+              <b>Classical Rating: </b> 
+            </div>
+            <div class="align-right">
+              <%= @game.black.SRating %>
+            </div>
+          </div>
+            <div class="container_player">
+            <div class="align-left">
+              <b>Rapid Rating: </b> 
+            </div>
+            <div class="align-right">
+              <%= @game.black.BRating %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
     </div>
-<!--     <div class="col-sm-4">
-        Game Stats
-    </div> -->
+
   </div>
+  <!-- /.row -->
+
 </div>
-  <a class="btn btn-dark" href="https://lichess.org/game/export/<%= @game.gid %>.pgn">Download PGN</a>
-  <button type="button" class="btn btn-outline-dark">Download PGN</button>
-<p>Winner: 
-<% wid=@game.winner_id %>
-<% if !(wid==0) %>
-	<%= Player.find(wid).pname %>
-<%else %>
-	It's a draw
-<%end%>
-</p>
-<%= render :partial => "annotations" %>
-<!-- <%= render :partial => "annotations/form",:locals => {:annotation => Annotation.new} %> -->
+<!-- /.container -->
+
+<!-- Footer -->
+
+  <!-- /.container -->
+  <footer class="py-5 bg-dark" >
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; lichessbase.herokuapp.com 2017</p>
+    </div>
+  </footer>

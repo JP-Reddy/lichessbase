@@ -2,7 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.align-left{ float: left;width:50%; }
+.align-right{float: right;width:50%}
 
+.container_player{ width:100%; }
 
 .card-header:first-child {
     border-radius: calc(.25rem - 1px) calc(.25rem - 1px) 0 0;

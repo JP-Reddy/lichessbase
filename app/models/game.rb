@@ -5,4 +5,5 @@ class Game < ApplicationRecord
 	has_many :annotations
 	has_one :tournament_game, :class_name =>'TournamentGame'
 	has_one :tournament, :class_name => 'Tournament', through: :tournament_game
+	# has_one :favoritegame, :class_name =>'Favoritegame'
 end

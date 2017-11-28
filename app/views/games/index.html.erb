@@ -14,33 +14,23 @@
         <!-- Jumbotron Header -->
         <header class="jumbotron hero-spacer">
             <h1>Welcome to LichessBase!</h1>
-            <p>This is a platform for all chess players to maintain all their games. With LichessBase, 
-            you can not only view but you can analyze your games and improve on your skills.</p>
+            <p><br/>A platform for chess players and enthusiasts to view games on the latest UI for chess games,comment on the moves made in any game and view annotations made by other users as well.<br/>Games ar listed in different time formats along with letting you list games by <b>tournaments</b>.<br/>You can even add your own favorite games to the website.<br/> <i>Join the platform and become a part of online chess community!</i></p>
         </header>
 
         <hr>
+        <div class="container" style="width: 1110px">
+            <div class="card my-4">
+              <h5 class="card-header">Latest Games</h5>
+              <div class="card-body">
+                <div class="row text-center">
 
-        <!-- Title -->
-        <div class="row">
-            <div class="col-lg-12">
-                <h3>Latest Games</h3>
+                    <%= render :partial => "categories" %>
+                    <%= render :partial => "lists" %>
+
+                </div>
+              </div>
             </div>
         </div>
-        <!-- /.row -->
-
-        <!-- Page Features -->
-        <div class="row text-center">
-
-            <%= render :partial => "categories" %>
-            <%= render :partial => "lists" %>
-
-        </div>
-        <!-- /.row -->
-
-        <hr>
-
-    </div>
-
 </body>
 
 </html>

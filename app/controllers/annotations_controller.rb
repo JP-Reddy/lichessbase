@@ -46,7 +46,7 @@ class AnnotationsController < ApplicationController
 	private
 
 	def annotation_params
-		params.require(:annotation).permit(:id,:annotation,:rating,:likes)
+		params.require(:annotation).permit(:id,:annotation)
 	end
 
 	def find_game

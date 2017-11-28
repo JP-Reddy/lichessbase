@@ -1,0 +1,56 @@
+<head>
+<style>
+.row{
+  margin-top: 30px;
+  margin-bottom: 30px
+}
+
+.btn-dark {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #343a40;
+}
+
+button, select {
+    text-transform: none;
+}
+
+a {
+    color: #1565c0;
+    text-decoration-skip: ink;
+    /* transition: color 150ms ease; */
+}
+</style>
+</head>
+<%url="https://lichess.org/embed/#{@game.gid}?theme=auto&bg=auto" %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>
+		<%= @game.white.pname%> vs <%=@game.black.pname %>
+      </h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+    	<iframe width=600 height=397 frameborder=0
+    	src=<%=url%>
+    	></iframe>
+    </div>
+<!--     <div class="col-sm-4">
+        Game Stats
+    </div> -->
+  </div>
+</div>
+  <a class="btn btn-outline-dark" href="https://lichess.org/game/export/<%= @game.gid %>.pgn">Download PGN</a>
+  <button type="button" class="btn btn-outline-dark" href="https://lichess.org/game/export/<%= @game.gid %>.pgn">Download PGN</button>
+<p>Winner: 
+<% wid=@game.winner_id %>
+<% if !(wid==0) %>
+	<%= Player.find(wid).pname %>
+<%else %>
+	It's a draw
+<%end%>
+</p>
+<%= render :partial => "annotations" %>
+<!-- <%= render :partial => "annotations/form",:locals => {:annotation => Annotation.new} %> -->

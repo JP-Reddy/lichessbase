@@ -1,9 +1,21 @@
-<div class="container_jp" >
-<h1>Tournaments</h1>
+<head>
+  <style>
+  .container_player{ width:100%; }
+  .align-left{ float: left;width:50%; }
+  .align-right{float: right;width:50%}
 
+</style>
+</head>
+
+<div class="container_jp" style="width: 1200px">
+  <div class="card my-4">
+    <h5 class="card-header">Tournaments</h5>
+    <div class="card-body">
 	<div class="row-fluid">
-	   <div class="col-xs-6" style="width: 500px;">
-		<% @tours[0..7].each do |tour| %>
+<!-- 	   <div class="col-xs-6" style="width: 500px;">
+ -->	
+ 		<div class="align-left"	
+ 		<% @tours[0..7].each do |tour| %>
 			<ul class="list-group">
 			  <li class="list-group-item d-flex justify-content-between align-items-center">
 			  	<%= link_to tour.name, tournament_path(tour.id) %>
@@ -13,7 +25,7 @@
 		<% end %>
 		</div>
 
-		<div class="col-xs-6" style="width: 500px;">
+		<div class="align-right" style="width: 500px;">
 		<% @tours[8..15].each do |tour| %>
 			<ul class="list-group">
 			  <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -23,6 +35,11 @@
 			</ul>
 		<% end %>
 		</div>
+    	
+    </div>
+  </div>
+</div>
+
 
 
 

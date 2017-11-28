@@ -48,9 +48,18 @@ p.alert, p.notice {
 	margin: 0;
 }
 
+body {
+  padding-top: 54px;
+}
+
+@media (min-width: 992px) {
+  body {
+    padding-top: 56px;
+  }
+}
 
 /* Navbar/navigation styles */
-
+/*
 .navbar {
 	font-family: 'Ubuntu', sans-serif;
 	font-weight: 500;
@@ -95,7 +104,7 @@ p.alert, p.notice {
 	color: #fff;
 }
 
-
+*/
 
 .links {
 

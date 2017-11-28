@@ -1,10 +1,7 @@
 <div class="container" style="width:400px">
 <%= simple_form_for([@game,@game.annotations.build], remote: true) do |f| %>
-	<%= f.input :rating %>
 	<%= f.input :annotation %>
-	<%= f.input :likes %>
 	<%= f.button :submit %>
-	<%=link_to "Cancel", game_path(@game.id),id: "cancel_annotation" , remote: true%>
 <% end %>
 
 </div>
