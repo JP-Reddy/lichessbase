@@ -1,24 +1,3 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Lichessbase, a Lichess clone, serves as a practical exploration into web development and database management, developed for a DBMS course project. This project has enriched my understanding of integrating and manipulating relational databases within a website context. Through Lichessbase, I've gained valuable skills in SQL, backend development, and the complexities of managing live data in a dynamic web environment."
